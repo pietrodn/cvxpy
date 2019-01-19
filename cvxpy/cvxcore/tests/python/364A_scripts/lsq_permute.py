@@ -31,7 +31,7 @@ true_perm=[]
 
 for i in range(k):
   if perm_idxs[i] != new_pos[i]:
-    true_perm = np.append(true_perm, perm_idxs[i])
+	true_perm = np.append(true_perm, perm_idxs[i])
 
 y = P.dot(y_true)
 new_pos = None

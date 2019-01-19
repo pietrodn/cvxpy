@@ -29,7 +29,7 @@ def accepts(problem):
     affine equality constraints are accepted by the reduction.
     """
     return (problem.objective.expr.is_qpwa()
-            and not set(['PSD', 'NSD']).intersection(convex_attributes(
+            and not {'PSD', 'NSD'}.intersection(convex_attributes(
                                                      problem.variables()))
             and all((type(c) in (Inequality, NonPos) and c.expr.is_pwl()) or
                     (type(c) in (Equality, Zero) and are_args_affine([c]))

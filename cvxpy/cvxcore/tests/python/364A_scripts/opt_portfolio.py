@@ -82,10 +82,10 @@ import matplotlib.pyplot as plt
 colors = ['b','r','g','c','m']
 plt.figure(figsize=(13,5))
 for j in range(n):
-    plt.plot(range(T), ws[:,j], colors[j])
-    plt.plot(range(T), [w_star[j]]*T,  colors[j]+'--')
-    non_zero_trades = abs(us[:,j]) > threshold
-    print non_zero_trades
+	plt.plot(range(T), ws[:,j], colors[j])
+	plt.plot(range(T), [w_star[j]]*T,  colors[j]+'--')
+	non_zero_trades = abs(us[:,j]) > threshold
+	print non_zero_trades
 plt.ylabel('post-trade weights')
 plt.xlabel('period $t$')
 

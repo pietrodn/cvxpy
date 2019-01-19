@@ -12,51 +12,51 @@ k = 4      # number of generators
 TIME = 0
 
 Pmax = np.matrix("""
-    4.8005,
-    1.9246,
-    3.4274,
-    2.9439,
-    4.5652,
-    4.0484,
-    2.8259,
-    1.0740,
-    4.2856,
-    2.7788,
-    3.4617,
-    4.1677,
-    4.6873,
-    3.9528,
-    1.7051,
-    2.6228,
-    4.7419,
-    4.6676,
+	4.8005,
+	1.9246,
+	3.4274,
+	2.9439,
+	4.5652,
+	4.0484,
+	2.8259,
+	1.0740,
+	4.2856,
+	2.7788,
+	3.4617,
+	4.1677,
+	4.6873,
+	3.9528,
+	1.7051,
+	2.6228,
+	4.7419,
+	4.6676,
 """)
 Gmax = np.matrix("3; 2; 4; 7")  # maximum generator power
 c    = np.matrix("4; 8; 5; 3")  # supply generator costs
 d = np.matrix("""                 
-    1.6154
-    2.3405
-    1.0868
-    1.5293
-    2.2197
-    1.0148
-    1.2083
-    1.3041
+	1.6154
+	2.3405
+	1.0868
+	1.5293
+	2.2197
+	1.0148
+	1.2083
+	1.3041
 """)# network power demands
 # graph incidence matrix
 A = np.matrix(""" -1 -1  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 ;
-       0  0 -1 -1  0  0  0  0  0  0  0  0  0  0  0  0  0  0 ;
-       0  0  0  0  0  0  0  0  0 -1 -1  0  0  0  0  0  0 -1 ;
-       0  0  0  0  0  0 -1  0  0  0  0  0  0  0 -1  0 -1  0 ;
-       1  0  0  0  1 -1  0  0  0  0  0  0  0  0  0  0  0  0 ;
-       0  1  1  0 -1  0  1 -1  0  0  0  0  0  0  0  0  0  0 ;
-       0  0  0  1  0  0  0  0 -1  1  0  0  0  0  0  0  0  0 ;
-       0  0  0  0  0  0  0  1  1  0  0  0 -1  0  1  0  0  1 ;
-       0  0  0  0  0  0  0  0  0  0  1 -1  0  0  0  0  0  0 ;
-       0  0  0  0  0  0  0  0  0  0  0  1  1 -1  0  0  0  0 ;
-       0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  1  0  0 ;
-       0  0  0  0  0  1  0  0  0  0  0  0  0  0  0 -1  1  0 
-       """)
+	   0  0 -1 -1  0  0  0  0  0  0  0  0  0  0  0  0  0  0 ;
+	   0  0  0  0  0  0  0  0  0 -1 -1  0  0  0  0  0  0 -1 ;
+	   0  0  0  0  0  0 -1  0  0  0  0  0  0  0 -1  0 -1  0 ;
+	   1  0  0  0  1 -1  0  0  0  0  0  0  0  0  0  0  0  0 ;
+	   0  1  1  0 -1  0  1 -1  0  0  0  0  0  0  0  0  0  0 ;
+	   0  0  0  1  0  0  0  0 -1  1  0  0  0  0  0  0  0  0 ;
+	   0  0  0  0  0  0  0  1  1  0  0  0 -1  0  1  0  0  1 ;
+	   0  0  0  0  0  0  0  0  0  0  1 -1  0  0  0  0  0  0 ;
+	   0  0  0  0  0  0  0  0  0  0  0  1  1 -1  0  0  0  0 ;
+	   0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  1  0  0 ;
+	   0  0  0  0  0  1  0  0  0  0  0  0  0  0  0 -1  1  0 
+	   """)
 
 
 g = Variable(k)
@@ -130,15 +130,15 @@ epsx = 0.05; epsy = 0.15; # text placing offset
 # plotting
 import matplotlib.pyplot as plt
 for i in range(12): #plot edges
-    for j in range(i):
-        if Ad[i,j] == 1:
-            pass #plt.plot((XY[i,0], XY[j,0]), (XY[i,1], XY[j,1]), 'k-')
+	for j in range(i):
+		if Ad[i,j] == 1:
+			pass #plt.plot((XY[i,0], XY[j,0]), (XY[i,1], XY[j,1]), 'k-')
 for j in range(k): #plot nodes
-    pass #plt.plot(XY[j,0],XY[j,1],'rs', markersize=12)
-    pass #plt.text(XY[j,0]-epsx,XY[j,1]+epsy,str(j+1))      
+	pass #plt.plot(XY[j,0],XY[j,1],'rs', markersize=12)
+	pass #plt.text(XY[j,0]-epsx,XY[j,1]+epsy,str(j+1))
 for j in range(k,n):
-    pass #plt.plot(XY[j,0],XY[j,1],'ko')
+	pass #plt.plot(XY[j,0],XY[j,1],'ko')
 pass #plt.axis('off')
 pass #plt.savefig('pwr_net.eps')
 if __name__ == '__main__':
-    pass #plt.show()
+	pass #plt.show()
