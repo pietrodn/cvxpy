@@ -179,7 +179,9 @@ class SolvingChain(Chain):
         The solver, i.e., reductions[-1].
     """
 
-    def __init__(self, problem=None, reductions=[]):
+    def __init__(self, problem=None, reductions=None):
+        if reductions is None:
+            reductions = []
         super(SolvingChain, self).__init__(problem=problem, reductions=reductions)
         if not isinstance(self.reductions[-1], Solver):
             raise ValueError("Solving chains must terminate with a Solver.")

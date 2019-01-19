@@ -283,7 +283,7 @@ class power(Elementwise):
     def get_data(self):
         return [self.p, self.w]
 
-    def copy(self, args=None, id_objects={}):
+    def copy(self, args=None, id_objects=None):
         """Returns a shallow copy of the power atom.
 
         Parameters
@@ -296,6 +296,8 @@ class power(Elementwise):
         -------
         power atom
         """
+        if id_objects is None:
+            id_objects = {}
         if args is None:
             args = self.args
         # Avoid calling __init__() directly as we do not have p and max_denom.

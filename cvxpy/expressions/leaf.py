@@ -146,7 +146,7 @@ class Leaf(expression.Expression):
                 attr_str += ", %s=%s" % (attr, val)
         return attr_str
 
-    def copy(self, args=None, id_objects={}):
+    def copy(self, args=None, id_objects=None):
         """Returns a shallow copy of the object.
 
         Used to reconstruct an object tree.
@@ -161,6 +161,8 @@ class Leaf(expression.Expression):
         -------
         Expression
         """
+        if id_objects is None:
+            id_objects = {}
         if id(self) in id_objects:
             return id_objects[id(self)]
         return self  # Leaves are not deep copied.
