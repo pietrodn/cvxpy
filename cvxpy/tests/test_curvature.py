@@ -23,17 +23,17 @@ from nose.tools import assert_equals
 class TestCurvature(object):
     """ Unit tests for the expression/curvature class. """
     @classmethod
-    def setup_class(self):
-        self.cvx = Variable()**2
-        self.ccv = Variable()**0.5
-        self.aff = Variable()
-        self.const = Constant(5)
-        self.unknown_curv = log(Variable()**3)
+    def setup_class(cls):
+        cls.cvx = Variable() ** 2
+        cls.ccv = Variable() ** 0.5
+        cls.aff = Variable()
+        cls.const = Constant(5)
+        cls.unknown_curv = log(Variable() ** 3)
 
-        self.pos = Constant(1)
-        self.neg = Constant(-1)
-        self.zero = Constant(0)
-        self.unknown_sign = Parameter()
+        cls.pos = Constant(1)
+        cls.neg = Constant(-1)
+        cls.zero = Constant(0)
+        cls.unknown_sign = Parameter()
 
     def test_add(self):
         assert_equals((self.const + self.cvx).curvature, self.cvx.curvature)

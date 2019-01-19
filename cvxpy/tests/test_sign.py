@@ -23,11 +23,11 @@ from cvxpy.tests.base_test import BaseTest
 class TestSign(BaseTest):
     """ Unit tests for the expression/sign class. """
     @classmethod
-    def setUpClass(self):
-        self.pos = Constant(1)
-        self.neg = Constant(-1)
-        self.zero = Constant(0)
-        self.unknown = Variable()
+    def setUpClass(cls):
+        cls.pos = Constant(1)
+        cls.neg = Constant(-1)
+        cls.zero = Constant(0)
+        cls.unknown = Variable()
 
     def test_add(self):
         self.assertEqual((self.pos + self.neg).sign, self.unknown.sign)
