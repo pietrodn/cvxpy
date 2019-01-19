@@ -57,8 +57,7 @@ n = 10000
 x = Variable(n)
 e = 0
 for i in range(n):
-    e += x[i];
-
+    e += x[i]
 
 # In[17]:
 

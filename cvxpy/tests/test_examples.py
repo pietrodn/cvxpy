@@ -335,8 +335,8 @@ class TestExamples(BaseTest):
         (n, m) = x.shape
 
         # Create and solve the model
-        A = cvx.Variable((n, n));
-        b = cvx.Variable((n, 1));
+        A = cvx.Variable((n, n))
+        b = cvx.Variable((n, 1))
         obj = cvx.Maximize(cvx.log_det(A))
         constraints = []
         for i in range(m):

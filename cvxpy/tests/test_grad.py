@@ -295,7 +295,7 @@ class TestGrad(BaseTest):
         self.assertAlmostEqual(lin_expr.value, expr.value)
 
         # Convex.
-        expr = (self.A)**2 + 5
+        expr = self.A ** 2 + 5
 
         with self.assertRaises(Exception) as cm:
             linearize(expr)
@@ -635,31 +635,31 @@ class TestGrad(BaseTest):
         self.a.value = -1
         self.assertAlmostEqual(expr.grad[self.a], None)
 
-        expr = (self.x)**3
+        expr = self.x ** 3
         self.x.value = [3, 4]
         self.assertItemsAlmostEqual(expr.grad[self.x].todense(),
                                     np.matrix("27 0; 0 48"))
 
-        expr = (self.x)**3
+        expr = self.x ** 3
         self.x.value = [-1e-9, 4]
         self.assertItemsAlmostEqual(expr.grad[self.x].todense(), np.matrix("0 0; 0 48"))
 
-        expr = (self.A)**2
+        expr = self.A ** 2
         self.A.value = [[1, -2], [3, 4]]
         val = np.zeros((4, 4)) + np.diag([2, -4, 6, 8])
         self.assertItemsAlmostEqual(expr.grad[self.A].todense(), val)
 
         # Constant.
-        expr = (self.a)**0
+        expr = self.a ** 0
         self.assertAlmostEqual(expr.grad[self.a], 0)
 
-        expr = (self.x)**0
+        expr = self.x ** 0
         self.assertItemsAlmostEqual(expr.grad[self.x].todense(), np.zeros((2, 2)))
 
     def test_partial_problem(self):
         """Test grad for partial minimization/maximization problems.
         """
-        for obj in [Minimize((self.a)**-1), Maximize(entr(self.a))]:
+        for obj in [Minimize(self.a ** -1), Maximize(entr(self.a))]:
             prob = Problem(obj, [self.x + self.a >= [5, 8]])
             # Optimize over nothing.
             expr = partial_optimize(prob, dont_opt_vars=[self.x, self.a])
@@ -716,12 +716,12 @@ class TestGrad(BaseTest):
         self.a.value = 2
         self.assertAlmostEqual(expr.grad[self.a], 0.5)
 
-        expr = -(self.x)
+        expr = -self.x
         self.x.value = [3, 4]
         val = np.zeros((2, 2)) - np.diag([1, 1])
         self.assertItemsAlmostEqual(expr.grad[self.x].todense(), val)
 
-        expr = -(self.A)
+        expr = -self.A
         self.A.value = [[1, 2], [3, 4]]
         val = np.zeros((4, 4)) - np.diag([1, 1, 1, 1])
         self.assertItemsAlmostEqual(expr.grad[self.A].todense(), val)

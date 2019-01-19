@@ -44,7 +44,7 @@ class TestDomain(BaseTest):
     def test_partial_problem(self):
         """Test domain for partial minimization/maximization problems.
         """
-        for obj in [Minimize((self.a)**-1), Maximize(log(self.a))]:
+        for obj in [Minimize(self.a ** -1), Maximize(log(self.a))]:
             orig_prob = Problem(obj, [self.x + self.a >= [5, 8]])
             # Optimize over nothing.
             expr = partial_optimize(orig_prob, dont_opt_vars=[self.x, self.a])
@@ -161,11 +161,11 @@ class TestDomain(BaseTest):
         Problem(Minimize(self.a), dom + [self.a >= -100]).solve()
         self.assertAlmostEqual(self.a.value, -100)
 
-        dom = ((self.a)**-1).domain
+        dom = (self.a ** -1).domain
         Problem(Minimize(self.a), dom + [self.a >= -100]).solve()
         self.assertAlmostEqual(self.a.value, 0)
 
-        dom = ((self.a)**3).domain
+        dom = (self.a ** 3).domain
         Problem(Minimize(self.a), dom + [self.a >= -100]).solve()
         self.assertAlmostEqual(self.a.value, 0)
 

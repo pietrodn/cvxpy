@@ -45,9 +45,9 @@ def run_testfile(filename):
 
 files = glob.glob("./364A_scripts/*.py")
 
-oldtime = {};
-newtime = {};
-fnames = [];
+oldtime = {}
+newtime = {}
+fnames = []
 iters = 1
 
 for testfile in files:
@@ -57,8 +57,8 @@ for testfile in files:
 	for _ in range(iters):
 		print "testing: ", testfile
 		try:
-			(o, n) = run_testfile(testfile);
-			oldtime[testfile] += [o]
+			(o, n) = run_testfile(testfile)
+            oldtime[testfile] += [o]
 			newtime[testfile] += [n]
 			fnames += [testfile]
 		except (RuntimeError, TypeError, NameError, AttributeError):

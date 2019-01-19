@@ -120,12 +120,12 @@ XY = np.matrix("""
  3.9 3;     
  1.4 2.5;   
  0 3
- """);    
+ """)
 
 # node adjacency matrix
 Ad = -A*A.T 
 Ad = Ad - np.diag(np.diag(Ad))
-epsx = 0.05; epsy = 0.15; # text placing offset
+epsx = 0.05; epsy = 0.15  # text placing offset
 
 # plotting
 import matplotlib.pyplot as plt

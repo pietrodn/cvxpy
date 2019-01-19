@@ -90,7 +90,7 @@ class TestDgp(BaseTest):
         x = cvxpy.Variable(pos=True)
         y = cvxpy.Variable(pos=True)
         z = cvxpy.Variable(pos=True)
-        monomial = 5.0 * (x ** 0.1) * y ** (-0.1) * z ** (3)
+        monomial = 5.0 * (x ** 0.1) * y ** (-0.1) * z ** 3
         self.assertTrue(monomial.is_dgp())
         self.assertTrue(monomial.is_log_log_convex())
         self.assertTrue(monomial.is_log_log_concave())
@@ -104,7 +104,7 @@ class TestDgp(BaseTest):
         x = cvxpy.Variable(pos=True)
         y = cvxpy.Variable(pos=True)
         z = cvxpy.Variable(pos=True)
-        monomial = 5.0 * (x ** 0.1) * y ** (-0.1) * z ** (3)
+        monomial = 5.0 * (x ** 0.1) * y ** (-0.1) * z ** 3
         posynomial = 5.0 * x * y + 1.2 * y * y
         another_posynomial = posynomial * posynomial
         expr = cvxpy.maximum(monomial, posynomial, another_posynomial)
@@ -125,7 +125,7 @@ class TestDgp(BaseTest):
         x = cvxpy.Variable(pos=True)
         y = cvxpy.Variable(pos=True)
         z = cvxpy.Variable(pos=True)
-        monomial = 5.0 * (x ** 0.1) * y ** (-0.1) * z ** (3)
+        monomial = 5.0 * (x ** 0.1) * y ** (-0.1) * z ** 3
         posynomial = 5.0 * x * y + 1.2 * y * y
         another_posynomial = posynomial * posynomial
         expr = cvxpy.minimum(monomial, 1 / posynomial, 1 / another_posynomial)

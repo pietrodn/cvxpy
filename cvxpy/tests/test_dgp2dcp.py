@@ -455,7 +455,7 @@ class TestDgp2Dcp(BaseTest):
         y = cvxpy.Variable((3,), pos=True)
         xy = cvxpy.vstack([x[0] * y, x[1] * y, x[2] * y])
         R = cvxpy.maximum(
-          cvxpy.multiply(X, (xy) ** (-1.0)),
+          cvxpy.multiply(X, xy ** (-1.0)),
           cvxpy.multiply(X ** (-1.0), xy))
         objective = cvxpy.sum(R)
         constraints = [

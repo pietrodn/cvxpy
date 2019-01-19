@@ -108,7 +108,7 @@ class TestObjectives(unittest.TestCase):
         """Test adding objectives.
         """
         expr1 = self.x**2
-        expr2 = (self.x)**(-1)
+        expr2 = self.x ** (-1)
         alpha = 2
 
         # Addition.
